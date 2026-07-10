@@ -13,6 +13,10 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Set BACKEND_URL during build so it is baked into Next.js routes manifest
+ARG BACKEND_URL=http://backend:6767
+ENV BACKEND_URL=$BACKEND_URL
+
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 

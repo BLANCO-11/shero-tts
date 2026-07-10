@@ -53,6 +53,7 @@ frontend.pid
 Thumbs.db
 
 # Databases (SQLite)
+data/
 *.db
 *.sqlite
 *.sqlite3

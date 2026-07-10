@@ -11,9 +11,10 @@ services:
       - .env
     environment:
       - PYTHONUNBUFFERED=1
+      - DB_DIR=/app/data
     volumes:
-      # Persist the database
-      - ./shero_tts.db:/app/shero_tts.db
+      # Persist the database directory
+      - ./data:/app/data
       # Persist voices (builtin catalog, custom, etc.)
       - ./voices:/app/voices
       # Cache huggingface weights so they aren't redownloaded

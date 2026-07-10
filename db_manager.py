@@ -4,7 +4,8 @@ import hashlib
 import secrets
 from datetime import datetime
 
-DB_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "shero_tts.db"))
+DB_DIR = os.environ.get("DB_DIR", os.path.dirname(__file__))
+DB_PATH = os.path.abspath(os.path.join(DB_DIR, "shero_tts.db"))
 
 def get_db_connection():
     conn = sqlite3.connect(DB_PATH)
@@ -13,6 +14,7 @@ def get_db_connection():
 
 def init_db():
     """Initializes the SQLite tables if they do not exist and registers default admin credentials."""
+    os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
     conn = get_db_connection()
     cursor = conn.cursor()
     
