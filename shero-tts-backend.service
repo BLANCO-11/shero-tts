@@ -1,0 +1,17 @@
+[Unit]
+Description=Shero-TTS Neural Synthesis Backend Daemon
+After=network.target
+
+[Service]
+Type=simple
+User=blanco
+WorkingDirectory=/home/blanco/workspace/Shero-TTS
+EnvironmentFile=/home/blanco/workspace/Shero-TTS/.env
+ExecStart=/home/blanco/workspace/Shero-TTS/.venv/bin/python main.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

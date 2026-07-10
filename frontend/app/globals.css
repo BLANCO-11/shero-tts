@@ -1,0 +1,272 @@
+@import "tailwindcss";
+
+:root {
+  /* Premium Layered Sarvam AI Inspired Saffron-Teal Theme (Light Theme) */
+  --background: #faf8f5; 
+  --bg-gradient-start: #eef2f6; /* Layer 1 Base: Cool Tech Blue-Slate */
+  --bg-gradient-mid: #faf8f5;   /* Layer 1 Base: Warm Cream Alabaster */
+  --bg-gradient-end: #fdf2e9;   /* Layer 1 Base: Saffron Clay Sand */
+  
+  --card: rgba(255, 255, 255, 0.65); /* Layer 2: Elevated High-Luminance Frosted Deck */
+  --card-foreground: #1c1c24; /* Deep Sovereign Slate */
+  
+  --primary: #e05a2b; /* Sarvam Saffron Orange */
+  --primary-foreground: #ffffff;
+  
+  --secondary: rgba(253, 242, 233, 0.7);
+  --secondary-foreground: #e05a2b;
+  
+  --muted: rgba(254, 243, 226, 0.5); /* Layer 3 Recessed Option/Slider Wells */
+  --muted-foreground: #5c6266;
+  
+  --accent: rgba(254, 243, 226, 0.8);
+  --accent-foreground: #e05a2b;
+  
+  --destructive: #c53030;
+  --destructive-foreground: #ffffff;
+  
+  --border: rgba(255, 255, 255, 0.9); /* Layer 2 Card Edge Highlights */
+  --input: rgba(253, 244, 235, 0.6);   /* Layer 3: Recessed Warm Saffron Sand Input Wells */
+  --ring: #e05a2b;
+  
+  --radius: 0.5rem;
+  
+  --highlight: #e05a2b; /* Sovereign Saffron */
+  --highlight-sec: #3b82f6; /* Royal Blue Accent */
+  --highlight-glow: rgba(224, 90, 43, 0.14);
+  --card-hover-border: rgba(224, 90, 43, 0.35);
+  --input-focus-border: rgba(224, 90, 43, 0.6);
+  
+  /* Layer 1 background floaters - Saffron Aurora Glow */
+  --orb-one: rgba(224, 90, 43, 0.18); /* Sovereign Saffron */
+  --orb-two: rgba(59, 130, 246, 0.15); /* Royal Blue */
+  --orb-three: rgba(245, 158, 11, 0.1);  /* Amber Glow */
+  
+  /* Layer 3 shadows (recessed depth) */
+  --inset-shadow-input: inset 0 2px 4px 0 rgba(224, 90, 43, 0.06);
+  --inset-shadow-well: inset 0 4px 12px 0 rgba(15, 23, 42, 0.08);
+}
+
+.dark {
+  /* Shadcn Dark Theme (Obsidian Zinc) */
+  --background: #09090b; /* Carbon Black */
+  --foreground: #fafafa;
+  
+  --card: rgba(14, 18, 22, 0.65);
+  --card-foreground: #fafafa;
+  
+  --primary: #fafafa;
+  --primary-foreground: #18181b;
+  
+  --secondary: rgba(39, 39, 42, 0.6);
+  --secondary-foreground: #fafafa;
+  
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  
+  --accent: rgba(39, 39, 42, 0.7);
+  --accent-foreground: #fafafa;
+  
+  --destructive: #7f1d1d;
+  --destructive-foreground: #fafafa;
+  
+  --border: rgba(63, 63, 70, 0.4);
+  --input: rgba(63, 63, 70, 0.4);
+  --ring: #d4d4d8;
+  
+  --radius: 0.5rem;
+  
+  --highlight: #38bdf8; /* Cyber Icy Sky Blue */
+  --highlight-sec: #8b5cf6; /* Frosty Purple */
+  --highlight-glow: rgba(56, 189, 248, 0.2);
+  --card-hover-border: rgba(56, 189, 248, 0.35);
+  --input-focus-border: rgba(56, 189, 248, 0.6);
+  
+  /* Glow orbs */
+  --orb-one: rgba(14, 165, 233, 0.12);
+  --orb-two: rgba(124, 58, 237, 0.08);
+  
+  /* Gradient background endpoints */
+  --bg-gradient-start: #07090b;
+  --bg-gradient-mid: #0b0e11;
+  --bg-gradient-end: #12161a;
+  
+  /* Layer 3 shadows (recessed depth) */
+  --inset-shadow-input: inset 0 2px 6px 0 rgba(0, 0, 0, 0.45);
+  --inset-shadow-well: inset 0 5px 15px 0 rgba(0, 0, 0, 0.75);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --color-highlight: var(--highlight);
+  --color-highlight-sec: var(--highlight-sec);
+  --color-highlight-glow: var(--highlight-glow);
+  
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  --animate-spin-slow: spin 8s linear infinite;
+  --animate-pulse-slow: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-fade-in: fade-in 0.25s ease-out;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+body {
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end)) fixed;
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+/* SHADCN LAYER 2: MODERN FROSTED CONTAINER */
+.shadcn-card {
+  background-color: var(--card);
+  backdrop-filter: blur(24px) saturate(135%);
+  -webkit-backdrop-filter: blur(24px) saturate(135%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px -2px rgba(109, 99, 85, 0.05), 
+              0 1px 2px 0 rgba(0, 0, 0, 0.02),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .shadcn-card {
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+.shadcn-card:hover {
+  border-color: var(--card-hover-border);
+  box-shadow: 0 12px 36px -5px rgba(109, 99, 85, 0.08), 
+              0 1px 3px 0 rgba(0, 0, 0, 0.03);
+}
+
+.dark .shadcn-card:hover {
+  border-color: var(--card-hover-border);
+  box-shadow: 0 14px 44px -8px rgba(0, 0, 0, 0.55);
+}
+
+/* SHADCN LAYER 3: FORM INPUT CONTROL (Recessed Inset) */
+.shadcn-input {
+  background-color: var(--input);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 2px);
+  color: var(--foreground);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--inset-shadow-input);
+}
+
+.shadcn-input:focus {
+  outline: none;
+  border-color: var(--input-focus-border);
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--inset-shadow-input), 0 0 0 2px var(--highlight-glow);
+}
+
+.dark .shadcn-input:focus {
+  border-color: var(--input-focus-border);
+  background-color: rgba(0, 0, 0, 0.45);
+  box-shadow: var(--inset-shadow-input), 0 0 0 2px var(--highlight-glow);
+}
+
+/* SHADCN LAYER 3: DEEP OSCILLOSCOPE MONITOR WELL (Recessed Visualizer Frame) */
+.visualizer-well {
+  background-color: rgba(253, 244, 235, 0.55);
+  border: 1px solid rgba(224, 90, 43, 0.18);
+  border-radius: calc(var(--radius) - 2px);
+  box-shadow: var(--inset-shadow-well);
+  overflow: hidden;
+}
+
+.dark .visualizer-well {
+  background-color: rgba(4, 5, 6, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: var(--inset-shadow-well);
+}
+
+/* Ambient Floating Backdrop Blobs (Layer 1) */
+.shadcn-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.dark .shadcn-blob {
+  opacity: 0.45;
+}
+
+@keyframes drift-one {
+  0% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(40px, -40px) scale(1.1); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes drift-two {
+  0% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(-30px, 30px) scale(0.95); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-drift-one {
+  animation: drift-one 16s infinite ease-in-out;
+}
+
+.animate-drift-two {
+  animation: drift-two 20s infinite ease-in-out;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(224, 90, 43, 0.12);
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}

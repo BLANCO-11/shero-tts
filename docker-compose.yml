@@ -1,0 +1,44 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: shero-tts-backend
+    restart: unless-stopped
+    ports:
+      - "6767:6767"
+    env_file:
+      - .env
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      # Persist the database
+      - ./shero_tts.db:/app/shero_tts.db
+      # Persist voices (builtin catalog, custom, etc.)
+      - ./voices:/app/voices
+      # Cache huggingface weights so they aren't redownloaded
+      - hf-cache:/app/cache/huggingface
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6767/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: shero-tts-frontend
+    restart: unless-stopped
+    ports:
+      - "6768:6768"
+    environment:
+      - BACKEND_URL=http://backend:6767
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  hf-cache:
+    name: shero_tts_hf_cache

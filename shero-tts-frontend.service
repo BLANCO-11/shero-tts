@@ -1,0 +1,18 @@
+[Unit]
+Description=Shero-TTS Next.js Frontend Client
+After=network.target shero-tts-backend.service
+Requires=shero-tts-backend.service
+
+[Service]
+Type=simple
+User=blanco
+WorkingDirectory=/home/blanco/workspace/Shero-TTS/frontend
+Environment="PATH=/home/blanco/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/usr/bin:/bin"
+ExecStart=/home/blanco/.local/share/pi-node/node-v22.22.3-linux-x64/bin/npm run start
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
