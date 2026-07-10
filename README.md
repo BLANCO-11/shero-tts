@@ -16,7 +16,7 @@ The easiest way to run the entire suite (FastAPI backend + Next.js frontend) is 
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repo-url> shero-tts
+   git clone https://github.com/BLANCO-11/shero-tts.git
    cd shero-tts
    ```
 
@@ -128,7 +128,7 @@ To publish this codebase to your own remote repository:
 
 3. **Link your Remote Repository:**
    ```bash
-   git remote add origin <your-remote-repository-url>
+   git remote add origin https://github.com/BLANCO-11/shero-tts.git
    ```
 
 4. **Push to main branch:**
